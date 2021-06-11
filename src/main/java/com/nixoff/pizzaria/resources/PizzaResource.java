@@ -3,6 +3,7 @@ package com.nixoff.pizzaria.resources;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -34,5 +35,10 @@ public class PizzaResource {
 	@PostMapping("pizza")
 	public Pizza salvaPizza(@RequestBody Pizza pizza) {
 		return pizzaRepository.save(pizza);
+	}
+	
+	@DeleteMapping("/pizza")
+	public void deletaPizza(@RequestBody Pizza pizza) {
+		pizzaRepository.delete(pizza);
 	}
 }
